@@ -7,21 +7,19 @@ public class Main {
 
         final String STOP_VALUE = "завершить";
 
-        int numberOfPeoples = inputPeopels();
+        Calculator.setNumberOfPeoples(inputPeopels());
 
-        Calculator calculator = new Calculator (numberOfPeoples);
         Product product = new Product();
-        Formatting formatting = new Formatting();
 
         System.out.println("Отлично, вы не один! Вам нужно ввести наименование товаров и их цену.");
 
         while(true){
 
             product.setNameProduct(inputNameProduct());
-            calculator.makeListOfProducts(product);
+            Calculator.makeListOfProducts(product);
 
             product.setPriceProduct(inputPriceProduct());
-            calculator.countSumOnBill(product);
+            Calculator.countSumOnBill(product);
 
             System.out.println("\n"+"******Ваш товар добавлен успешно!******"+"\n");
 
@@ -31,13 +29,13 @@ public class Main {
                 break;
         }
 
-        System.out.println(calculator.getListProducts());
+        System.out.println(Calculator.getListProducts());
 
-        System.out.print("Общая сумма для оплаты: " + formatting.getFormattingDouble(calculator.getSumOfProducts()));
-        System.out.println(" " + formatting.getFormattingEnding(calculator.getSumOfProducts()));
+        System.out.print("Общая сумма для оплаты: " + Formatting.getFormattingDouble(Calculator.getSumOfProducts()));
+        System.out.println(" " + Formatting.getFormattingEnding(Calculator.getSumOfProducts()));
 
-        System.out.print("Сумма оплаты для одного человека: " + formatting.getFormattingDouble(calculator.getSumForOnePeople()));
-        System.out.println(" " + formatting.getFormattingEnding(calculator.getSumForOnePeople()) + ". Вместе дешевле и веселее!");
+        System.out.print("Сумма оплаты для одного человека: " + Formatting.getFormattingDouble(Calculator.getSumForOnePeople()));
+        System.out.println(" " + Formatting.getFormattingEnding(Calculator.getSumForOnePeople()) + ". Вместе дешевле и веселее!");
 
     }
 

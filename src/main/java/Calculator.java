@@ -1,32 +1,32 @@
 public class Calculator {
 
-    private String listProducts = "";
-    private double sumOfProducts = 0;
-    private final int NUMBER_OF_PEOPLES;
+    private static String listProducts = "";
+    private static double sumOfProducts = 0;
+    private static int numberOfPeoples;
 
-    Calculator (int numberOfPeoples ) {
-        NUMBER_OF_PEOPLES = numberOfPeoples;
+    public static void setNumberOfPeoples (int setNumberOfPeoples ) {
+        numberOfPeoples = setNumberOfPeoples;
     }
 
-    public void makeListOfProducts (Product product) {
+    public static void makeListOfProducts (Product product) {
 
         listProducts = listProducts + product.getNameProduct()  + "\n";
     }
 
-    public void countSumOnBill (Product priceProduct) {
+    public static void countSumOnBill (Product priceProduct) {
         sumOfProducts += priceProduct.getPriceProduct();
     }
 
-    public String getListProducts() {
+    public static String getListProducts() {
         System.out.println("\nДобавленные товары:");
 
         return listProducts;
     }
 
-    public double getSumOfProducts (){
+    public static double getSumOfProducts (){
         return sumOfProducts;
     }
-    public double getSumForOnePeople (){
-        return sumOfProducts / NUMBER_OF_PEOPLES;
+    public static double getSumForOnePeople(){
+        return sumOfProducts / numberOfPeoples;
     }
 }
